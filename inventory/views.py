@@ -21,26 +21,25 @@ def home(request):
 
 
 def vehicles(request):
-    category = request.GET.get('category')
+    # category = request.GET.get('category')
     vehicles = Vehicle.objects.all()
-    transmission = request.GET.get('transmission')
-    fuel_type =request.GET.get('fuel_type')
-    drive_type = request.GET.get('drive_type')
+    # transmission = request.GET.get('transmission')
+    # fuel_type =request.GET.get('fuel_type')
+    # drive_type = request.GET.get('drive_type')
     
-    if category:
-        vehicles =  vehicles.filter(category__iexact=category)
-        
-    if transmission: 
-        print(f"transmission:{transmission}")
-        vehicles = vehicles.filter(transmission__iexact=transmission)
+    filters = {}
+    for key, value in filters.items():
+        print(f"{key}: {value}")
     
-    if fuel_type:
-        print(f"fuel_type:{fuel_type}")
-        vehicles = vehicles.filter(fuel_type__iexact=fuel_type)
+    for field in ['category','transmission', 'fuel_type','drive_type']:
+        value = request.GET.get(field)
+        if value:
+            filters[f"{field}__iexact"]= value
+            
+    if filters:
+        vehicles = vehicles.filter(**filters)
     
-    if drive_type:
-        print(f"drive_type:{drive_type}")
-        vehicles = vehicles.filter(drive_type__iexact=drive_type)
+
     
     
 
