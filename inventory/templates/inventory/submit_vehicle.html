@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submit Vehicle | Bilal Automarts</title>
+    <link rel="stylesheet" href="{% static 'css/submit_vehicle.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Bilal Automarts</div>
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li class="dropdown">
+                <a href="#">Vehicles <i class="fa fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'vehicles' %}">All</a></li>
+                    <li><a href="#">SUV</a></li>
+                    <li><a href="#">Sedan</a></li>
+                    <li><a href="#">Wagon</a></li>
+                    <li><a href="#">Pickup</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Support & Service</a></li>
+        </ul>
+        <div class="icons">
+            <a href="#"><i class="fa fa-search"></i></a>
+            <a href="#"><i class="fa fa-user"></i></a>
+        </div>
+    </nav>
+
+    <section class="vehicle-grid">
+        <h2>Submit a New Vehicle</h2>
+        <div class="card">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>Vehicle Details</legend>
+                    {% for field in vehicle_form %}
+                        <div class="form-group">
+                            <label>{{ field.label_tag }}</label>
+                            {{ field }}
+                            {% if field.help_text %}
+                                <small class="help-text">{{ field.help_text }}</small>
+                            {% endif %}
+                            {% for error in field.errors %}
+                                <p class="error">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </fieldset>
+
+                <fieldset>
+                    <legend>Gallery Images</legend>
+                    {{ image_formset.management_form }}
+                    {% for form in image_formset %}
+                        <div class="form-group">
+                            <label>{{ form.image.label_tag }}</label>
+                            {{ form.image }}
+                            <label>{{ form.caption.label_tag }}</label>
+                            {{ form.caption }}
+                            {% for error in form.errors %}
+                                <p class="error">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </fieldset>
+
+                <button type="submit">Submit Vehicle</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

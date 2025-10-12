@@ -1,0 +1,122 @@
+[
+{
+  "model": "inventory.vehicle",
+  "pk": 1,
+  "fields": {
+    "title": "ford explorer",
+    "category": "SUV",
+    "description": "Built for large families, to move anywhere with comfort",
+    "price": "10000000.00",
+    "image": "vehicles/ford_explorer_BM1fpyO.jpg",
+    "available": true,
+    "engine_size": null,
+    "transmission": null,
+    "fuel_type": null,
+    "drive_type": null,
+    "mileage": null,
+    "registration_year": null,
+    "ownership_history": null,
+    "logbook_available": false,
+    "insurance_valid": false,
+    "color": null,
+    "seating_capacity": null,
+    "interior_material": null
+  }
+},
+{
+  "model": "inventory.vehicle",
+  "pk": 2,
+  "fields": {
+    "title": "Golf GTI",
+    "category": "Wagon",
+    "description": "Sports Wagon packing fun performance",
+    "price": "5000000.00",
+    "image": "vehicles/golf_gti_Q0PfQIx.jpg",
+    "available": true,
+    "engine_size": null,
+    "transmission": null,
+    "fuel_type": null,
+    "drive_type": null,
+    "mileage": null,
+    "registration_year": null,
+    "ownership_history": null,
+    "logbook_available": false,
+    "insurance_valid": false,
+    "color": null,
+    "seating_capacity": null,
+    "interior_material": null
+  }
+},
+{
+  "model": "inventory.vehicle",
+  "pk": 3,
+  "fields": {
+    "title": "Dodge Ram",
+    "category": "SUV",
+    "description": "Powerful Pickup track. Modern enough packed with luxurious interior",
+    "price": "12000000.00",
+    "image": "vehicles/dodge_ram.jpg",
+    "available": true,
+    "engine_size": null,
+    "transmission": "Automatic",
+    "fuel_type": "Petrol",
+    "drive_type": null,
+    "mileage": null,
+    "registration_year": null,
+    "ownership_history": null,
+    "logbook_available": false,
+    "insurance_valid": false,
+    "color": null,
+    "seating_capacity": null,
+    "interior_material": null
+  }
+},
+{
+  "model": "inventory.vehicle",
+  "pk": 4,
+  "fields": {
+    "title": "audi s3",
+    "category": "Sedan",
+    "description": "modern sporty sedan parks good performance fo a daily driver.",
+    "price": "2500000.00",
+    "image": "vehicles/sedan.jpg",
+    "available": true,
+    "engine_size": "2500cc",
+    "transmission": "Automatic",
+    "fuel_type": "Petrol",
+    "drive_type": "rear wheel drive",
+    "mileage": null,
+    "registration_year": 2018,
+    "ownership_history": null,
+    "logbook_available": true,
+    "insurance_valid": true,
+    "color": "black",
+    "seating_capacity": 5,
+    "interior_material": "alcantara"
+  }
+},
+{
+  "model": "inventory.vehicle",
+  "pk": 5,
+  "fields": {
+    "title": "F150 Raptor",
+    "category": "Pickup",
+    "description": "Tough performance truck with a powerful V8 engine",
+    "price": "15000000.00",
+    "image": "vehicles/f150.jpg",
+    "available": true,
+    "engine_size": null,
+    "transmission": "Automatic",
+    "fuel_type": "Petrol",
+    "drive_type": "4wd",
+    "mileage": null,
+    "registration_year": 2023,
+    "ownership_history": null,
+    "logbook_available": false,
+    "insurance_valid": false,
+    "color": "white",
+    "seating_capacity": 5,
+    "interior_material": "leather and alcantara"
+  }
+}
+]
