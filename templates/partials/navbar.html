@@ -1,0 +1,39 @@
+{% load static %}
+<nav class="navbar">
+    <div class="logo">Bilal Automarts</div>
+
+    <div class="nav-links">
+        <li class="dropdown">
+            <a href="#">Vehicles <i class="fa fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="{% url 'vehicles' %}">All</a></li>
+                <li><a href="{% url 'vehicles' %}?category=SUV">SUV</a></li>
+                <li><a href="{% url 'vehicles' %}?category=Sedan">Sedan</a></li>
+                <li><a href="{% url 'vehicles' %}?category=Wagon">Wagon</a></li>
+                <li><a href="{% url 'vehicles' %}?category=Pickup">Pickup</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Support & Service</a></li>
+    </div>
+
+    <div class="icons">
+        <a href="#"><i class="fa fa-search"></i></a>
+    </div>
+
+    {% if user.is_authenticated %}
+        <div class="profile-menu">
+            <div class="profile-trigger">
+                <img src="{% static 'images/default-profile.jpg' %}" alt="profile" class="profile-avatar"/>
+                <span class="profile-name">{{ user.username }}</span>
+                <i class="fa fa-caret-down"></i>
+            </div>
+            <ul class="profile-dropdown">
+                <li><a href="{% url 'edit_profile' %}">Profile Settings</a></li>
+                <li><a href="{% url 'logout' %}">Log Out <i class="fa fa-sign-out-alt"></i></a></li>
+            </ul>
+        </div>
+    {% else %}
+        <a href="{% url 'login' %}" class="login-link"><i class="fa fa-user"></i> Login</a>
+    {% endif %}
+</nav>

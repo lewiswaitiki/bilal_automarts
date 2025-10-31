@@ -1,0 +1,152 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 1rem 2rem;
+    color: black;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: large;
+    margin-right: 250px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    list-style: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    width: 150px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+    background-color: lightgray;
+    color: black;
+}
+
+.nav-links a,
+.icons a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: red;
+    border-radius: 4px;
+    padding: 0.7rem;
+    color: white;
+}
+
+.icons {
+    margin-left: auto;
+}
+
+.icons a {
+    margin-left: 1rem;
+    font-size: 1.2rem;
+}
+
+/* Profile dropdown styling */
+.profile-menu {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 0;
+    padding-left: 2rem;
+}
+
+.profile-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.profile-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    list-style: none;
+    padding: 0.5rem 0;
+    min-width: 180px;
+    z-index: 1000;
+    display: none;
+}
+
+.profile-dropdown li a {
+    display: block;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+.profile-dropdown li a:hover {
+    background-color: #f0f0f0;
+}
+
+.profile-menu:hover .profile-dropdown {
+    display: block;
+}
+
+.profile-trigger:hover {
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+.login-link {
+    text-decoration: none;
+    margin-left: 50px;
+}
+
+@media (max-width: 768px) {
+    .profile-menu {
+        padding-left: 1rem;
+    }
+
+    .profile-name {
+        display: none;
+    }
+}

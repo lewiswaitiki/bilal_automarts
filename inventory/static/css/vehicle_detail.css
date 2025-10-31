@@ -378,6 +378,7 @@ body {
 .footer-section .content-wrapper {
     max-width: 800px;
     width: 100%;
+    margin-top: 100px;
 }
 
 .footer-section h4 {

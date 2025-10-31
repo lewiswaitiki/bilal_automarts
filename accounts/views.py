@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
-from .forms import CustomerSignupForm,LoginForm
+from .forms import CustomerSignupForm,LoginForm,EditProfileForm
 from django.contrib.auth import login,logout,authenticate
+from django.contrib import messages
 
 # Create your views here.
 def customer_signup(request):
@@ -8,7 +9,7 @@ def customer_signup(request):
         form = CustomerSignupForm(request.POST)
         if form.is_valid():
             form.save()
-            # return redirect('login')
+            return redirect('login')
         
     else:
         form = CustomerSignupForm()
@@ -47,3 +48,19 @@ def redirect_by_role(user):
 def logout_view(request):
     logout(request)
     return redirect('home')
+
+
+# edit profile view
+def edit_profile(request):
+    if request.method=='POST':
+        print(type(request.POST))
+        username = request.POST.get('username','').strip()
+        print(f"Username from form: {username}")
+        form = EditProfileForm(request.POST,instance=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Profile updated successfully.')
+            return redirect('edit_profile')
+    else:
+        form = EditProfileForm(instance=request.user)
+    return render(request,'accounts/edit_profile.html',{'form':form})

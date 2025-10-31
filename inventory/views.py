@@ -3,6 +3,7 @@ from .models import Vehicle, VehicleImage
 from .forms import VehicleForm, VehicleImageFormSet,VehicleInquiryForm
 from django.contrib.auth.decorators import user_passes_test
 from django.core.mail import send_mail
+from django.contrib import messages
 
 
 def is_admin(user):
@@ -21,15 +22,11 @@ def home(request):
 
 
 def vehicles(request):
-    # category = request.GET.get('category')
+    
     vehicles = Vehicle.objects.all()
-    # transmission = request.GET.get('transmission')
-    # fuel_type =request.GET.get('fuel_type')
-    # drive_type = request.GET.get('drive_type')
+    
     
     filters = {}
-    for key, value in filters.items():
-        print(f"{key}: {value}")
     
     for field in ['category','transmission', 'fuel_type','drive_type']:
         value = request.GET.get(field)
@@ -88,6 +85,18 @@ def admin_dashboard(request):
     vehicles = Vehicle.objects.all()
     return render(request,'inventory/admin_dashboard.html',{'vehicles':vehicles})
     
+
+#delete vehicle view
+@user_passes_test(is_admin)
+def delete_vehicle(request,vehicle_id):
+    try:
+        vehicle = Vehicle.objects.get(id=vehicle_id)
+        vehicle.delete()
+        messages.success(request, f"Vehicle '{vehicle.title}' was successfully deleted.")
+    except Vehicle.DoesNotExist:
+        messages.error(request, "Vehicle not found. Deletion failed.")
+    return redirect('admin_dashboard')
+
 
 
 # send inquiry view

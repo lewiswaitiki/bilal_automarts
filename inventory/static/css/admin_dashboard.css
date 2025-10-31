@@ -12,81 +12,113 @@ body {
     line-height: 1.6;
 }
 
-/* Navbar */
-.navbar {
+
+
+.admin-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    padding: 1rem 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    min-height: 100vh;
 }
 
-.logo {
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-links li {
-    position: relative;
-}
-
-.nav-links a,
-.icons a {
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.nav-links a:hover {
-    background-color: red;
-    border-radius: 4px;
-    padding: 0.7rem;
+.sidebar {
+    width: 220px;
+    background-color: #003399;
     color: white;
+    padding: 2rem 0rem;
 }
 
-.icons a {
-    margin-left: 1rem;
-    font-size: 1.2rem;
+.sidebar h2 {
+    margin-bottom: 1rem;
 }
 
-/* Dropdown */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
+.sidebar ul {
     list-style: none;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     padding: 0;
-    margin: 0;
-    width: 160px;
-    z-index: 999;
+    width: 100%;
 }
 
-.dropdown:hover .dropdown-menu {
-    display: block;
+.sidebar ul li {
+    margin-bottom: 1rem;
+    width: 100%;
+    
 }
 
-.dropdown-menu li a {
-    display: block;
-    padding: 0.75rem 1rem;
+.sidebar ul li a {
+    color: white;
     text-decoration: none;
+    font-weight: bold;
+    display: block;
+    padding: 0.75rem 1.5rem;
     transition: all 0.3s ease;
 }
 
-.dropdown-menu li a:hover {
-    background-color: lightgray;
-    color: black;
+.sidebar ul li a:hover {
+    background-color: #0056b3;
+    padding-left: 1rem;
+    transform: scale(0.95);
+}
+
+.dashboard-content {
+    flex: 1;
+    padding: 2rem;
+    background-color: #f9f9f9;
+}
+
+.actions {
+    margin-bottom: 1rem;
+}
+
+.add-btn, .edit-btn, .delete-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.edit-btn {
+    background-color: #28a745;
+    margin-left: 0.5rem;
+}
+
+.delete-btn{
+    background-color: #dc3545;
+    margin-left: 0.5rem;
+}
+
+
+.welcome-banner{
+    background-color: #003399;
+    color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.vehicle-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.vehicle-table th, .vehicle-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+
+.messages {
+    margin-bottom: 1rem;
+}
+
+.alert {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    border: 1px solid #c3e6cb;
+    font-weight: bold;
 }

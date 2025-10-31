@@ -126,14 +126,13 @@ body {
 
 .signup-container label {
     font-weight: 600;
-    margin-bottom: 0.3rem;
     color: #444;
     display: block;
     font-weight: bold;
 }
 
 .signup-container input {
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 1rem;
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1rem;
@@ -177,4 +176,8 @@ input:invalid {
 }
 input:valid {
     border-color: green;
+}
+
+.signup-link{
+    margin-top: 1rem;
 }

@@ -10,19 +10,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">Bilal Automarts</div>
-        <ul class="nav-links">
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'vehicles' %}">Vehicles <i class="fa fa-caret-down"></i></a></li>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">Support & Service</a></li>
-        </ul>
-        <div class="icons">
-            <a href="#"><i class="fa fa-search"></i></a>
-            <a href="#"><i class="fa fa-user"></i></a>
-        </div>
-    </nav>
+    {% include 'partials/navbar.html' %}
 
 
     <!-- Vehicle Listing -->
@@ -31,27 +19,27 @@
         <form method="get" class="filter-form">
             <select name="transmission">
                 <option value="">Transmission</option>
-                <option value="Automatic">Automatic</option>
-                <option value="Manual">Manual</option>
-            <select>
+                <option value="Automatic" {% if request.GET.transmission == "Automatic" %}selected{% endif %}>Automatic</option>
+                <option value="Manual" {% if request.GET.transmission == "Manual" %}selected{% endif %}>Manual</option>
+            </select>
 
             <select name="fuel_type">
                 <option value="">Fuel Type</option>
-                <option value="Petrol">Petrol</option>
-                <option value="Diesel">Diesel</option>
-            <select>
+                <option value="Petrol" {% if request.GET.fuel_type == "Petrol" %}selected{% endif %}>Petrol</option>
+                <option value="Diesel" {% if request.GET.fuel_type == "Diesel" %}selected{% endif %}>Diesel</option>
+                <option value="Hybrid" {% if request.GET.fuel_type == "Hybrid" %}selected{% endif %}>Hybrid</option>
+            </select>
 
             <select name="drive_type">
                 <option value="">Drive Type</option>
-                <option value="4WD">4WD</option>
-                <option value="FWD">FWD</option>
-                <option value="RWD">RWD</option>
+                <option value="4WD" {% if request.GET.drive_type == "4WD" %}selected{% endif %}>4WD</option>
+                <option value="FWD" {% if request.GET.drive_type == "FWD" %}selected{% endif %}>FWD</option>
+                <option value="RWD" {% if request.GET.drive_type == "RWD" %}selected{% endif %}>RWD</option>
             </select>
-
+            
             <button type="submit">Filter</button>
 
         </form>
-
         <div class="grid">
             {% for vehicle in vehicles %}
             <div class="card fade-in" data-id="{{ vehicle.id }}">
